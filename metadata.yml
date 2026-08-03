@@ -1,6 +1,6 @@
 Identifier: eos5g6m
 Slug: glacier-embeddings
-Status: In progress
+Status: Ready
 Title: GLACIER Molecular Embeddings
 Description: GLACIER is a multimodal student-teacher foundation model that turns
   a SMILES string into a 512-dimensional molecular embedding. It internally 
@@ -39,6 +39,18 @@ Source Code: https://github.com/eemokey/glacier
 License: MIT
 Contributor: TiagoJanela
 Incorporation Date: '2026-08-03'
+Last Packaging Date: '2026-08-03'
+Release: v1.0.0
 S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos5g6m
+Docker Architecture:
+  - AMD64
+  - ARM64
 Model Size: 26.0
 Environment Size: 1862.0
+Image Size: 1863.77
+Computational Performance 1: 39.09
+Computational Performance 2: 24.01
+Computational Performance 3: 29.49
+Computational Performance 4: 91.67
+Computational Performance 5: 384.8
