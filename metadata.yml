@@ -22,7 +22,8 @@ Output:
   - Value
 Output Dimension: 512
 Output Consistency: Fixed
-Interpretation: 512-dimensional multimodal molecular embedding for downstream property prediction
+Interpretation: 512-dimensional multimodal molecular embedding for downstream 
+  property prediction
 Tag:
   - Descriptor
   - Embedding
@@ -37,3 +38,4 @@ Publication: https://arxiv.org/abs/2606.11382
 Source Code: https://github.com/eemokey/glacier
 License: MIT
 Contributor: TiagoJanela
+Incorporation Date: '2026-08-03'
