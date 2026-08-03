@@ -16,9 +16,14 @@ from rdkit import Chem
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 _SRC = os.path.join(_HERE, "glacier_src")          # vendored model code + tokenizer
-_CKPT = os.path.join(_HERE, "..", "..", "checkpoints")  # config.json + pytorch_model.bin (eosvc)
+_CKPT = os.path.join(_HERE, "..", "..", "checkpoints")  # config.json + model.safetensors (eosvc)
 
 EMB_DIM = 512  # GLACIER fused embedding dimension (config.json: fusion_dim / output_dim)
+# The descriptor branch was trained on a fixed-length RDKit descriptor vector.
+# rdkit must be pinned (see install.yml) so Descriptors.descList has this many
+# entries; a different rdkit version silently changes the count and otherwise
+# fails deep inside the model with an opaque shape error.
+_EXPECTED_N_DESCRIPTORS = 217
 
 # The vendored GLACIER code uses flat imports (`from encoders import ...`,
 # `from data.dataloader import ...`), so its directory must be on sys.path.
@@ -32,6 +37,19 @@ def _load_model():
     """Load and cache the Glacier model on CPU in eval mode."""
     global _model
     if _model is None:
+        # Fail fast with a clear message if the rdkit descriptor count does not
+        # match what the checkpoint expects (usually an rdkit version mismatch).
+        from rdkit.Chem import Descriptors
+        import rdkit
+
+        n_desc = len(Descriptors.descList)
+        if n_desc != _EXPECTED_N_DESCRIPTORS:
+            raise RuntimeError(
+                f"RDKit produces {n_desc} descriptors but GLACIER's descriptor "
+                f"branch expects {_EXPECTED_N_DESCRIPTORS}. Pin the rdkit version "
+                f"from install.yml (installed: {rdkit.__version__})."
+            )
+
         from glacier_student import Glacier
 
         torch.set_num_threads(max(1, os.cpu_count() or 1))
