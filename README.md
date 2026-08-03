@@ -2,6 +2,7 @@
 
 GLACIER is a multimodal student-teacher foundation model that turns a SMILES string into a 512-dimensional molecular embedding. It internally fuses three views of a molecule — a message-passing graph encoder, a SMILES transformer, and physicochemical descriptors — through a geometry-aware module, distilled from larger teacher models via contrastive learning. The embedding is a general-purpose featurizer for downstream molecular property prediction.
 
+This model was incorporated on 2026-08-03.
 
 
 ## Information
@@ -43,8 +44,11 @@ _10 of 512 columns are shown_
 ### Source and Deployment
 - **Source:** `Local`
 - **Source Type:** `External`
+- **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip)
 
 ### Resource Consumption
+- **Model Size (Mb):** `26`
+- **Environment Size (Mb):** `1862`
 
 
 ### References
