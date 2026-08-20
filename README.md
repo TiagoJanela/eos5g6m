@@ -1,6 +1,6 @@
 # GLACIER Molecular Embeddings
 
-GLACIER encodes molecules into 512 features using a student-teacher arrangement in which a lightweight student learns to reproduce representations from larger multimodal teachers. Nguyen and colleagues designed it so that the expressive power of heavy foundation models becomes available at a fraction of the inference cost, with the student trained to match teacher embeddings rather than to predict properties. The embedding is task-independent, and its dimensions carry no interpretable chemical meaning individually.
+GLACIER is a multimodal student-teacher foundation model that turns a SMILES string into a 512-dimensional molecular embedding. It internally fuses three views of a molecule — a message-passing graph encoder, a SMILES transformer, and physicochemical descriptors — through a geometry-aware module, distilled from larger teacher models via contrastive learning. The embedding is a general-purpose featurizer for downstream molecular property prediction.
 
 This model was incorporated on 2026-08-03.Last packaged on 2026-08-03.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2026-08-03.Last packaged on 2026-08-03.
 ### Output
 - **Output Dimension:** `512`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** 512 features encoding molecular structure from a student-teacher foundation model.
+- **Interpretation:** 512-dimensional multimodal molecular embedding for downstream property prediction
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
