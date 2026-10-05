@@ -1,14 +1,14 @@
 Identifier: eos5g6m
 Slug: glacier-embeddings
-Status: In progress
+Status: Ready
 Title: GLACIER Molecular Embeddings
-Description: GLACIER is a multimodal student-teacher foundation model that turns
-  a SMILES string into a 512-dimensional molecular embedding. It internally 
-  fuses three views of a molecule — a message-passing graph encoder, a SMILES 
-  transformer, and physicochemical descriptors — through a geometry-aware 
-  module, distilled from larger teacher models via contrastive learning. The 
-  embedding is a general-purpose featurizer for downstream molecular property 
-  prediction.
+Description: GLACIER encodes molecules into 512 features using a student-teacher arrangement
+  in which a lightweight student learns to reproduce representations from larger multimodal
+  teachers. Nguyen and colleagues designed it so that the expressive power of heavy
+  foundation models becomes available at a fraction of the inference cost, with the
+  student trained to match teacher embeddings rather than to predict properties. The
+  embedding is task-independent, and its dimensions carry no interpretable chemical
+  meaning individually.
 Deployment:
   - Local
 Source: Local
@@ -22,7 +22,8 @@ Output:
   - Value
 Output Dimension: 512
 Output Consistency: Fixed
-Interpretation: 512-dimensional multimodal molecular embedding for downstream property prediction
+Interpretation: 512 features encoding molecular structure from a student-teacher foundation
+  model.
 Tag:
   - Descriptor
   - Embedding
@@ -31,9 +32,25 @@ Biomedical Area:
   - Any
 Target Organism:
   - Any
-Publication Type: Preprint
+Publication Type: Peer reviewed
 Publication Year: 2026
-Publication: https://arxiv.org/abs/2606.11382
+Publication: https://doi.org/10.1145/3770855.3819032
 Source Code: https://github.com/eemokey/glacier
 License: MIT
 Contributor: TiagoJanela
+Incorporation Date: '2026-08-03'
+Last Packaging Date: '2026-08-03'
+Release: v1.0.0
+S3: https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip
+DockerHub: https://hub.docker.com/r/ersiliaos/eos5g6m
+Docker Architecture:
+  - AMD64
+  - ARM64
+Model Size: 26.0
+Environment Size: 1862.0
+Image Size: 1863.77
+Computational Performance 1: 39.09
+Computational Performance 2: 24.01
+Computational Performance 3: 29.49
+Computational Performance 4: 91.67
+Computational Performance 5: 384.8
