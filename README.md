@@ -2,7 +2,8 @@
 
 Encodes a molecule into 512 features by passing it through three encoders at once, a message-passing network over the graph, a transformer over the SMILES string and a multilayer perceptron over physicochemical descriptors, then fusing the three with a Finsler geometry-aware module. Nguyen and colleagues pretrained the encoders on 100,000 molecules sampled from Enamine REAL and distilled the MiniMol and MolFormer teachers into them by contrastive learning, so a compact model keeps pace with far heavier ones. Dimensions carry no individual chemical meaning.
 
-This model was incorporated on 2026-08-03.Last packaged on 2026-10-05.
+This model was incorporated on 2026-08-03.
+Last packaged on 2026-10-05.
 
 ## Information
 ### Identifiers
@@ -46,6 +47,7 @@ _10 of 512 columns are shown_
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos5g6m](https://hub.docker.com/r/ersiliaos/eos5g6m)
 - **Docker Architecture:** `AMD64`, `ARM64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos5g6m.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos5g6m_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos5g6m_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `26`
