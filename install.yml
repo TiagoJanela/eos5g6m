@@ -9,3 +9,4 @@ commands:
     - ["pip", "scikit-learn", "1.6.0"]
     - ["pip", "numpy", "1.26.4"]
     - ["pip", "ersilia-pack-utils", "0.1.5"]
+    - ["pip", "pandas", "3.0.6"]
